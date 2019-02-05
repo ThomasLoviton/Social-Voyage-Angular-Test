@@ -1,0 +1,35 @@
+<button class="retour btn btn-{{colors[sec]}} text-{{colors[sec+1]}}" (click)="goBack()">
+  <i class="fas fa-undo-alt fa-spin text-{{colors[sec+2]}}"></i>
+  Retour <i class="fas fa-undo-alt fa-spin text-{{colors[sec+2]}}"></i>
+</button>
+<div *ngIf="article">
+    <button routerLink="/modifier-post/{{article.id}}" class="retour btn btn-{{colors[sec]}}">Modifier l'article de {{article.titre}}</button>
+    <button (click)="deletePost(article.id)" class="retour btn btn-{{colors[sec]}}">Supprimer l'article de {{article.titre}}</button>
+    <div class="card border-{{colors[sec]}}">
+      <!-- Pour la conversion en fr https://github.com/angular/angular/issues/23826 -->
+      <div class="card-header text-center text-{{colors[sec]}} border-{{colors[sec]}}">
+        Article créé le {{article.dateCreation | date:'EEEE d LLLL yyyy' | titlecase}} à {{article.dateCreation | date:'H:mm' | titlecase}}
+      </div>
+      <img class="card-img-top" src={{article.urlImage}} alt="{{article.titre}}">
+      <div class="card-body text-center text-{{colors[sec]}}">
+        <h5 class="card-title">{{article.titre}}</h5>
+        <p class="card-text">{{article.texte}}</p>
+        <footer class="blockquote-footer text-center text-{{colors[sec]}}">
+          <small>
+            Ajouté par <cite title="Source Title">{{article.auteur}}</cite>
+          </small>
+        </footer>
+      </div>
+      <div class="card-footer text-center text-{{colors[sec]}} border-{{colors[sec]}}">
+        <small>Dernière mise à jour, il y a
+          {{((today | date:'yyyy') - (article.dateUpdate | date:'yyyy'))}} Ans
+          {{((today | date:'M') - (article.dateUpdate | date:'M'))}} Mois
+          {{((today | date:'d') - (article.dateUpdate | date:'d'))}} Jours
+          {{((today | date:'HH') - (article.dateUpdate | date:'HH'))}} Heures
+          {{((today | date:'mm') - (article.dateUpdate | date:'mm'))}} Minutes
+        </small>
+      </div>
+    </div>
+    {{article.nbCommentaire}}
+    <app-comment [article_id]="article.id"></app-comment>
+

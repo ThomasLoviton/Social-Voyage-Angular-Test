@@ -1,0 +1,23 @@
+<button id="retour" class="btn btn-{{colors[sec]}} text-{{colors[sec+1]}}" (click)="goBack()"><i class="fas fa-undo-alt fa-spin text-{{colors[sec+2]}}"></i>
+  Retour <i class="fas fa-undo-alt fa-spin text-{{colors[sec+2]}}"></i></button>
+<div *ngIf="commentaire">
+  <div class="mx-auto card text-center border-{{colors[sec]}} text-{{colors[sec]}}">
+    <div class="card-header text-{{colors[sec]}} border-{{colors[sec]}}">
+      Ajouter un nouveau commentaire
+    </div>
+    <div class="form-group"><input value={{getArticleId()}} #idA>
+      <input value={{commentaire.id}} #idC>
+      <label>Texte de l'Commentaire</label>
+      <textarea type="text" class="form-control border-{{colors[sec]}}" placeholder="Texte du Commentaire" rows="5"
+        #CommentaireTexte>{{commentaire.texte}}</textarea>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Auteur de l'Commentaire</label>
+      <input type="text" class="form-control border-{{colors[sec]}}" placeholder="Auteur du Commentaire" value="{{commentaire.auteur}}" #CommentaireAuteur>
+    </div>
+    <button class="btn btn-{{colors[sec]}}" (click)="modifyComment(idA.value, idC.value, CommentaireTexte.value, CommentaireAuteur.value); CommentaireAuteur.value=''; 
+    CommentaireTexte.value='';">
+      Ajouter
+    </button>
+  </div>
+</div>

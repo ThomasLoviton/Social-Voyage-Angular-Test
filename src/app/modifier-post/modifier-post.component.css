@@ -1,0 +1,27 @@
+#retour{
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-bottom: 0.5%;
+}
+
+.card{
+    width: 75%;
+}
+form{
+    width: 75%;
+    padding-top: 5%; 
+    padding-bottom: 5%; 
+}
+.form-group{
+    width: 100%;
+}
+button{
+    width: 50%;
+}
+
+.fa-undo-alt.fa-spin{
+
+        animation-direction: reverse;
+      
+}

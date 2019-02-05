@@ -1,0 +1,34 @@
+<app-carousel></app-carousel>
+<h2>Tous les articles</h2>
+<a id="ajout" routerLink="/ajout-post" class="btn text-center" [ngStyle]="{'color' : colorsInverse[sec], 'background-color' : colors[sec]}"><i
+    class="fas fa-plus fa-spin"></i> Ajouter un nouvel article <i class="fas fa-plus fa-spin"></i></a>
+<div class="card-deck">
+  <div *ngFor="let article of posts;  let i = index" class="card" [ngStyle]="{'border-color': colors[i], 'color' : colorsInverse[i]}">
+    <!-- Pour la conversion en fr https://github.com/angular/angular/issues/23826 -->
+    <div class="card-header text-center" [ngStyle]="{'border-color' : colors[i]}">
+      Article créé le {{getDate(article.datecreation) | titlecase}}
+      <!-- {{article.dateCreation | date:'EEEE d LLLL yyyy' | titlecase}} à {{article.dateCreation | date:'H:mm' | titlecase}} -->
+    </div>
+    <img class="card-img-top" src={{article.urlimage}} alt="{{article.titre}}">
+    <div class="card-body text-center">
+      <h5 class="card-title">{{article.titre}}</h5>
+      <p class="card-text">{{article.miniTexte}}</p>
+      <footer class="blockquote-footer text-center">
+        <small>
+          Ajouté par <cite title="Source Title">{{article.auteur}}</cite>
+        </small>
+      </footer>
+    </div>
+    <a routerLink="/post/{{article.id}}" class="mx-auto btn" [ngStyle]="{'color' : colorsInverse[i], 'background-color' : colors[i]}">Voir
+      l'article de {{article.titre}}</a>
+    <div class="card-footer text-center" [ngStyle]="{'border-color' : colors[i]}">
+      <small>Dernière mise à jour, {{getDifferenceDate(article.dateupdate)}}
+        <!-- {{((today | date:'yyyy') - (article.dateUpdate | date:'yyyy'))}} Ans
+        {{((today | date:'M') - (article.dateUpdate | date:'M'))}} Mois
+        {{((today | date:'d') - (article.dateUpdate | date:'d'))}} Jours
+        {{((today | date:'HH') - (article.dateUpdate | date:'HH'))}} Heures
+        {{((today | date:'mm') - (article.dateUpdate | date:'mm'))}} Minutes -->
+      </small>
+    </div>
+  </div>
+</div>

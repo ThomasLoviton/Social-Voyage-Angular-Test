@@ -1,0 +1,34 @@
+<button id="retour" class="btn btn-{{colors[sec]}} text-{{colors[sec+1]}}" (click)="goBack()"><i class="fas fa-undo-alt fa-spin text-{{colors[sec+2]}}"></i> Retour <i class="fas fa-undo-alt fa-spin text-{{colors[sec+2]}}"></i></button>
+<div class="mx-auto card text-center border-{{colors[sec]}} text-{{colors[sec]}}">
+  <div class="card-header text-{{colors[sec]}} border-{{colors[sec]}}">
+    Ajouter un nouvel article
+  </div>
+  <form class="mx-auto text-{{colors[sec]}}">
+    <div class="form-group">
+      <label>Titre de l'article</label>
+      <input type="text" class="form-control border-{{colors[sec]}}" placeholder="Titre de l'article" #ArticleTitre>
+    </div>
+    <div class="form-group">
+      <label>Texte de l'article</label>
+      <textarea type="text" class="form-control border-{{colors[sec]}}" placeholder="Texte de l'article" rows="5" #ArticleTexte></textarea>
+    </div>
+    <div class="form-group">
+      <label>Mini texte de l'article</label>
+      <textarea type="text" class="form-control border-{{colors[sec]}}" placeholder="Mini texte de l'article" rows="2" #ArticleMiniTexte></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Auteur de l'article</label>
+        <input type="text" class="form-control border-{{colors[sec]}}" placeholder="Auteur de l'article" #ArticleAuteur>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Url de l'image de l'article</label>
+        <input type="text" class="form-control border-{{colors[sec]}}" placeholder="Url de l'image de l'article" #ArticleUrlImage>
+      </div>
+    </div>
+    <button class="btn btn-{{colors[sec]}}" (click)="add(ArticleTitre.value, ArticleTexte.value, ArticleMiniTexte.value, ArticleAuteur.value, ArticleUrlImage.value); 
+      ArticleTitre.value=''; ArticleTexte.value=''; ArticleMiniTexte.value=''; ArticleAuteur.value=''; ArticleUrlImage.value=''">
+    Ajouter
+  </button>
+  </form>
+</div>

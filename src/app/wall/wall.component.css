@@ -1,0 +1,32 @@
+h2{
+    margin-top: 2%;
+    text-align: center;
+}
+.card-deck{
+    margin-right: 5%;
+    margin-left: 5%; 
+}
+.card{
+    min-width: 25%;
+    max-width: 30%;
+    margin: 2.5%;
+    margin-top: 0%;
+    margin-bottom: 5%;
+}
+img{
+    height: 250px;
+    width: auto;
+}
+
+a{
+    width: 75%;
+    margin-bottom: 5%;
+}
+
+
+#ajout{
+    width: 25%;
+    margin-right: 37.5%;
+    margin-left: 37.5%;
+    margin-bottom: 1%;
+}

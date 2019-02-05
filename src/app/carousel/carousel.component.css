@@ -1,0 +1,18 @@
+h1{
+    text-align: center;
+}
+
+.carousel{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.carousel-inner {
+    height: 600px;
+}
+
+img{
+    width: auto;
+    height: 600px;
+}

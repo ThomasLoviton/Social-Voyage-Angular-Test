@@ -1,0 +1,25 @@
+<button routerLink="/post/{{article_id}}/ajout-comment" class="btn btn-{{colors[sec]}}" [ngStyle]="{'color': colors[sec]}"><i
+    class="fas fa-undo-alt fa-spin" [ngStyle]="{'color': colors[sec]}"></i> ADD <i class="fas fa-undo-alt fa-spin"
+    [ngStyle]="{'color': colors[sec]}"></i></button>
+<div class="card border-{{colors[sec]}}">
+  <div class="card-header text-center text-{{colors[sec]}} border-{{colors[sec]}}">
+    Les commentaires
+  </div>
+  <input value={{article_id}} #idA>
+  <div *ngFor="let commentaire of commentaires">
+    <div class="media border-{{colors[sec]}} text-{{colors[sec]}}">
+      <input value={{commentaire.id}} #idC>
+      <img class="rounded-circle align-self-center mx-3 border-{{colors[sec]}}" src="https://source.unsplash.com/random/75x75"
+        alt="Generic placeholder image">
+      <div class="media-body">
+        <h5 class="mt-0">De {{commentaire.auteur}}</h5>
+        <p>{{commentaire.texte}}</p>
+        <h5>{{commentaire.date}}</h5> 
+     {{nbLikes[commentaire.id]['nbTotal']}} 
+        <a (click)="addLike(idA.value, idC.value);"><i class="far fa-heart"></i></a>
+        <button routerLink="/post/{{article_id}}/modifier-comment/{{commentaire.id}}" class="retour btn btn-{{colors[sec]}}">Modifier
+          le commentaire</button>
+      </div>
+    </div>
+  </div>
+</div>
